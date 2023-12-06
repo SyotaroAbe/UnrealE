@@ -19,8 +19,13 @@ public:
 	UPROPERTY(VisibleAnywhere)
 		UStaticMeshComponent* VisualMesh;
 
+	// ˆÚ“®—Ê
 	UPROPERTY(EditAnywhere, BlueprintReadWrite, Category="FloatingProperty")
 	float ScaleHeight = 20.0f;
+
+	// ˆÚ“®ƒtƒ‰ƒO
+	UPROPERTY(EditAnywhere, BlueprintReadWrite, Category = "FloatingProperty")
+		bool IsFloating;
 
 protected:
 	// Called when the game starts or when spawned

@@ -38,17 +38,20 @@ void AFloatingActor::Tick(float DeltaTime)
 {
 	Super::Tick(DeltaTime);
 
-	// アクタの位置を取得
-	FVector NewLocation = GetActorLocation();
+	if (IsFloating == true)
+	{
+		// アクタの位置を取得
+		FVector NewLocation = GetActorLocation();
 
-	// 現在の高さを算出
-	float RunningTime = GetGameTimeSinceCreation();
-	float DeltaHeight = (FMath::Sin(RunningTime + DeltaTime) - FMath::Sin(RunningTime));
+		// 現在の高さを算出
+		float RunningTime = GetGameTimeSinceCreation();
+		float DeltaHeight = (FMath::Sin(RunningTime + DeltaTime) - FMath::Sin(RunningTime));
 
-	// Z（高さ）を設定
-	NewLocation.Z += DeltaHeight * ScaleHeight;	// scale20
+		// Z（高さ）を設定
+		NewLocation.Z += DeltaHeight * ScaleHeight;	// scale20
 
-	// アクタの位置へ設定
-	SetActorLocation(NewLocation);
+		// アクタの位置へ設定
+		SetActorLocation(NewLocation);
+	}
 }
 
