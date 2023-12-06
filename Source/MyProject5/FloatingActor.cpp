@@ -43,10 +43,10 @@ void AFloatingActor::Tick(float DeltaTime)
 
 	// 現在の高さを算出
 	float RunningTime = GetGameTimeSinceCreation();
-	float DeltaHeight = (FMath::Sin(RunningTime + DeltaHeight) - FMath::Sin(RunningTime));
+	float DeltaHeight = (FMath::Sin(RunningTime + DeltaTime) - FMath::Sin(RunningTime));
 
 	// Z（高さ）を設定
-	NewLocation.Z += DeltaHeight * 20.0f;	// scale20
+	NewLocation.Z += DeltaHeight * ScaleHeight;	// scale20
 
 	// アクタの位置へ設定
 	SetActorLocation(NewLocation);
